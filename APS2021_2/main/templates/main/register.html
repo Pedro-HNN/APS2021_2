@@ -1,0 +1,43 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div class="row align-items-center justify-content-center" style="margin-top:10px">
+    <div class="col-md-6" >
+        <h1>Faça o registro no nosso sistema de biometria por reconhecimento facial! <br><br>Lembre-se que é preciso estar conectado com uma câmera ou webcam para o programa funcionar!</h1>
+    </div>
+    <div class="col-md-6">
+        <form method="POST" action="/registerFace/" id="registerForm" class="form-group" >
+        {% csrf_token %}
+        <input class="form-control-lg" type="text" name="name" placeholder="Coloque seu Nome">
+
+        <input type="email" class="form-control-lg" name="email" placeholder="Coloque seu Email">
+
+        <div class="form-group">
+            <label >Selecione seu cargo</label>
+            <select class="form-control-lg" name="level">
+              <option value ="1">Usuario</option>
+              <option value="2">Admin</option>
+              <option value ="3">Dono</option>
+            </select>
+        </div>
+
+        <button type="submit" form="registerForm" class="btn-lg btn-secondary" >Register</button>
+    </form>
+    </div>
+</div>
+
+    {% if message %}
+        <div class="alert alert-danger m-2" id="error" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <script>
+        setTimeout(function(){
+            if ($('#error').length > 0){
+                $('#error').remove();
+            }
+        },2000)
+    </script>
+
+{% endblock %}

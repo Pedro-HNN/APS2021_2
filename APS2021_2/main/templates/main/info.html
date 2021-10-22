@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="row align-items-center justify-content-center" style="margin-top:10px">
+    <div class="col-md-6" >
+        <h1>Aqui está seus dados após o login,<br><br>Todos os dados foram retirados com base no seu rosto registrado no nosso sistema</h1>
+    </div>
+    <div class="col-md-6">
+        <div class="card custom-card shadow p-2 mb-5 bg-white rounded h-100" style="margin-top:20px;max-width: 25rem; border-color: #636363;">
+        <h2>Nome: {{name}}</h2>
+        <h2>Email: {{email}}</h2>
+        <h2>Cargo: {{level}}</h2>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
